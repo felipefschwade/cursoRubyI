@@ -10,20 +10,22 @@ puts "Começaremos o jogo para voce " + nome + "\n\n"
 puts "Escolhendo um número secreto entre 0 e 200... \n\n"
 # Definindo um número
 numeroSecreto = 175
-puts "Tentativa 1\n"
-puts "Digite o seu chute \n"
-# Pega chute da entrada do usuário
-chute = gets
-puts "Será que acertou? Você chutou " + chute +"\n\n"
-# Assimila acertou a entrada do usuário comparada com número secreto
-acertou = chute.to_i == numeroSecreto
-if acertou
- 	puts "Acertou!"
-else 
-	maior = chute.to_i > numeroSecreto
-	if maior
-		puts "Você chutou um número maior que o número secreto"
-	else
-		puts "Você chutou um número menor que o número secreto"
-	end
-end 
+for tentativa in 1..3
+	puts "Tentativa " + tentativa.to_s + "\n"
+	puts "Digite o seu chute \n"
+	# Pega chute da entrada do usuário
+	chute = gets
+	puts "Será que acertou? Você chutou " + chute +"\n\n"
+	# Assimila acertou a entrada do usuário comparada com número secreto
+	acertou = chute.to_i == numeroSecreto
+	if acertou
+	 	puts "Acertou!"
+	else 
+		maior = chute.to_i > numeroSecreto
+		if maior
+			puts "Você chutou um número maior que o número secreto"
+		else
+			puts "Você chutou um número menor que o número secreto"
+		end
+	end 
+end
