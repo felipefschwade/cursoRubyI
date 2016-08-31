@@ -15,5 +15,15 @@ puts "Digite o seu chute \n"
 # Pega chute da entrada do usuário
 chute = gets
 puts "Será que acertou? Você chutou " + chute +"\n\n"
-# Compara o chute à entrada do usuário
-puts chute.to_i == numeroSecreto
+# Assimila acertou a entrada do usuário comparada com número secreto
+acertou = chute.to_i == numeroSecreto
+if acertou
+ 	puts "Acertou!"
+else 
+	maior = chute.to_i > numeroSecreto
+	if maior
+		puts "Você chutou um número maior que o número secreto"
+	else
+		puts "Você chutou um número menor que o número secreto"
+	end
+end 
