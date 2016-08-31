@@ -8,9 +8,10 @@ puts "\n\n\n\n"
 puts "Começaremos o jogo para voce " + nome + "\n\n"
 # Mensagem de escolha do numero
 puts "Escolhendo um número secreto entre 0 e 200... \n\n"
+limiteDeTentivas = 3
 # Definindo um número
 numeroSecreto = 175
-for tentativa in 1..3
+for tentativa in 1..limiteDeTentivas
 	puts "Tentativa " + tentativa.to_s + "\n"
 	puts "Digite o seu chute \n"
 	# Pega chute da entrada do usuário
