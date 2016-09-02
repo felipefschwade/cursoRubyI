@@ -28,6 +28,22 @@ def pedeUmNumero(tentativa, limiteDeTentivas)
 	chute
 end
 
+def verificaSeAcertou(chute, numeroSecreto)
+	acertou = chute.to_i == numeroSecreto
+	if acertou
+	 	puts "Acertou!"
+	 	return true
+	else 
+		maior = chute.to_i > numeroSecreto
+		if maior
+			puts "Você chutou um número maior que o número secreto"
+		else
+			puts "Você chutou um número menor que o número secreto"
+		end
+	end
+	false
+end
+
 deBoasVindas
 
 numeroSecreto = sorteiaNumeroSecreto
@@ -36,16 +52,7 @@ limiteDeTentivas = 3
 for tentativa in 1..limiteDeTentivas
 	# Outra convencao do Ruby, passar os parametros para a funcao sem usar parenteses
 	chute = pedeUmNumero tentativa, limiteDeTentivas
-	acertou = chute.to_i == numeroSecreto
-	if acertou
-	 	puts "Acertou!"
+	if verificaSeAcertou chute, numeroSecreto
 	 	break
-	else 
-		maior = chute.to_i > numeroSecreto
-		if maior
-			puts "Você chutou um número maior que o número secreto"
-		else
-			puts "Você chutou um número menor que o número secreto"
-		end
-	end 
+	end
 end
