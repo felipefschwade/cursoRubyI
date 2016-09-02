@@ -8,21 +8,34 @@ def deBoasVindas
 	# Mensagem de comeco do jogo
 	puts "Começaremos o jogo para voce " + nome + "\n\n"
 	# Mensagem de escolha do numero
-	puts "Escolhendo um número secreto entre 0 e 200... \n\n"
 end
 
+def sorteiaNumeroSecreto
+	puts "Escolhendo um número secreto entre 0 e 200... \n\n"
+	# Definindo um número
+	numeroSecreto = 175
+	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
+	numeroSecreto
+end
 
-deBoasVindas
-limiteDeTentivas = 3
-# Definindo um número
-numeroSecreto = 175
-for tentativa in 1..limiteDeTentivas
-	puts "Tentativa " + tentativa.to_s + "\n"
+def pedeUmNumero(tentativa, limiteDeTentivas)
+	puts "Tentativa " + tentativa.to_s + " de " + limiteDeTentivas.to_s + "\n"
 	puts "Digite o seu chute \n"
 	# Pega chute da entrada do usuário
 	chute = gets
 	puts "Será que acertou? Você chutou " + chute +"\n\n"
-	# Assimila acertou a entrada do usuário comparada com número secreto
+	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
+	chute
+end
+
+deBoasVindas
+
+numeroSecreto = sorteiaNumeroSecreto
+limiteDeTentivas = 3
+
+for tentativa in 1..limiteDeTentivas
+	# Outra convencao do Ruby, passar os parametros para a funcao sem usar parenteses
+	chute = pedeUmNumero tentativa, limiteDeTentivas
 	acertou = chute.to_i == numeroSecreto
 	if acertou
 	 	puts "Acertou!"
