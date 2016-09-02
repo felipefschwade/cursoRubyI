@@ -29,19 +29,18 @@ def pedeUmNumero(tentativa, limiteDeTentivas)
 end
 
 def verificaSeAcertou(chute, numeroSecreto)
-	acertou = chute.to_i == numeroSecreto
-	if acertou
-	 	puts "Acertou!"
-	 	return true
-	else 
-		maior = chute.to_i > numeroSecreto
-		if maior
-			puts "Você chutou um número maior que o número secreto"
-		else
-			puts "Você chutou um número menor que o número secreto"
-		end
-	end
-	false
+	acertou = numeroSecreto == chute.to_i
+    if acertou
+        puts "Acertou!"
+        return true
+    end
+    maior = numeroSecreto > chute.to_i
+    if maior
+        puts "O número secreto é maior!"
+    else
+        puts "O número secreto é menor!"
+    end
+    false
 end
 
 deBoasVindas
