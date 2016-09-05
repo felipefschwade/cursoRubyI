@@ -3,7 +3,7 @@ def deBoasVindas
 	puts "Bem-vindo ao jogo da adivinhação \n\n\n"
 	puts "Qual o seu nome?"
 	#Gets captura a entrada de um usuário
-	nome = gets
+	nome = gets.strip
 	puts "\n\n\n\n"
 	# Mensagem de comeco do jogo
 	puts "Começaremos o jogo para voce " + nome + "\n\n"
@@ -22,8 +22,8 @@ def pedeUmNumero(tentativa, limiteDeTentivas, totalDeChutes)
 	puts "Chutes até agora " + totalDeChutes.to_s
 	puts "Tentativa " + tentativa.to_s + " de " + limiteDeTentivas.to_s + "\n"
 	puts "Digite o seu chute \n"
-	# Pega chute da entrada do usuário
-	chute = gets
+	# Pega chute da entrada do usuário e remove os espaços em branco
+	chute = gets.strip
 	# Adiciona chute ao final de total de chutes
 	totalDeChutes << chute
 	puts "Será que acertou? Você chutou " + chute +"\n\n"
