@@ -6,7 +6,7 @@ def deBoasVindas
 	nome = gets.strip
 	puts "\n\n\n\n"
 	# Mensagem de comeco do jogo
-	puts "Começaremos o jogo para voce " + nome + "\n\n"
+	puts "Começaremos o jogo para voce #{nome}\n\n"
 	# Mensagem de escolha do numero
 end
 
@@ -20,13 +20,13 @@ end
 
 def pedeUmNumero(tentativa, limiteDeTentivas, totalDeChutes)
 	puts "Chutes até agora " + totalDeChutes.to_s
-	puts "Tentativa " + tentativa.to_s + " de " + limiteDeTentivas.to_s + "\n"
+	puts "Tentativa #{tentativa} de #{limiteDeTentivas}\n"
 	puts "Digite o seu chute \n"
 	# Pega chute da entrada do usuário e remove os espaços em branco
 	chute = gets.strip
 	# Adiciona chute ao final de total de chutes
 	totalDeChutes << chute
-	puts "Será que acertou? Você chutou " + chute +"\n\n"
+	puts "Será que acertou? Você chutou #{chute}\n\n"
 	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
 	chute
 end
