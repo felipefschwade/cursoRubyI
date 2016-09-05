@@ -18,11 +18,14 @@ def sorteiaNumeroSecreto
 	numeroSecreto
 end
 
-def pedeUmNumero(tentativa, limiteDeTentivas)
+def pedeUmNumero(tentativa, limiteDeTentivas, totalDeChutes)
+	puts "Chutes até agora " + totalDeChutes.to_s
 	puts "Tentativa " + tentativa.to_s + " de " + limiteDeTentivas.to_s + "\n"
 	puts "Digite o seu chute \n"
 	# Pega chute da entrada do usuário
 	chute = gets
+	# Adiciona chute ao final de total de chutes
+	totalDeChutes << chute
 	puts "Será que acertou? Você chutou " + chute +"\n\n"
 	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
 	chute
@@ -47,10 +50,11 @@ deBoasVindas
 
 numeroSecreto = sorteiaNumeroSecreto
 limiteDeTentivas = 3
+totalDeChutes = []
 
 for tentativa in 1..limiteDeTentivas
 	# Outra convencao do Ruby, passar os parametros para a funcao sem usar parenteses
-	chute = pedeUmNumero tentativa, limiteDeTentivas
+	chute = pedeUmNumero tentativa, limiteDeTentivas, totalDeChutes
 	if verificaSeAcertou chute, numeroSecreto
 	 	break
 	end
