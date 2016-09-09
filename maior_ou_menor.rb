@@ -10,10 +10,23 @@ def deBoasVindas
 	# Mensagem de escolha do numero
 end
 
-def sorteiaNumeroSecreto
-	puts "Escolhendo um número secreto entre 0 e 200... \n\n"
+def sorteiaNumeroSecreto(dificuldade)
+	case dificuldade
+	 	when 1
+	 		maximo = 30
+	 	when 2
+	 		maximo = 60
+    	when 3
+        	maximo = 100
+	    when 4
+	        maximo = 150
+	    else
+	        maximo = 200
+	end	 
+        
+	puts "Escolhendo um número secreto entre 0 e #{maximo}... \n\n"
 	# Definindo um número
-	numeroSecreto = 175
+	numeroSecreto = rand(maximo)
 	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
 	numeroSecreto
 end
@@ -29,6 +42,11 @@ def pedeUmNumero(tentativa, limiteDeTentivas, totalDeChutes)
 	puts "Será que acertou? Você chutou #{chute}\n\n"
 	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
 	chute
+end
+
+def pede_dificuldade
+    puts "Qual o nível de dificuldade que deseja? (1 fácil, 5 difícil)"
+    dificuldade = gets.to_i
 end
 
 def verificaSeAcertou(chute, numeroSecreto)
@@ -48,8 +66,9 @@ end
 
 deBoasVindas
 
-numeroSecreto = sorteiaNumeroSecreto
-limiteDeTentivas = 3
+dificuldade = pede_dificuldade
+numeroSecreto = sorteiaNumeroSecreto dificuldade
+limiteDeTentivas = 5
 totalDeChutes = []
 
 for tentativa in 1..limiteDeTentivas
