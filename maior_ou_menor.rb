@@ -25,9 +25,9 @@ def sorteiaNumeroSecreto(dificuldade)
 	        maximo = 200
 	end	 
         
-	puts "Escolhendo um número secreto entre 0 e #{maximo}... \n\n"
+	puts "Escolhendo um número secreto entre 1 e #{maximo}... \n\n"
 	# Definindo um número
-	numeroSecreto = rand(maximo)
+	numeroSecreto = rand(maximo) + 1
 	# Convencional em Ruby não utilizar return para retornar um valor e enviar apenasa variável desejada
 	numeroSecreto
 end
@@ -67,6 +67,7 @@ end
 
 nome = deBoasVindas
 
+pontos_ate_agora = 1000
 dificuldade = pede_dificuldade
 numeroSecreto = sorteiaNumeroSecreto dificuldade
 limiteDeTentivas = 5
@@ -79,7 +80,10 @@ for tentativa in 1..limiteDeTentivas
 		puts "Acertou!"
 		break
 	end
+    pontos_ate_agora -= (chute.to_i - numeroSecreto).abs
 	if verificaSeAcertou chute, numeroSecreto
 	 	break
 	end
 end
+
+puts "Você marcou: #{pontos_ate_agora}"
