@@ -8,6 +8,7 @@ def deBoasVindas
 	# Mensagem de comeco do jogo
 	puts "Começaremos o jogo para voce #{nome}\n\n"
 	# Mensagem de escolha do numero
+	nome
 end
 
 def sorteiaNumeroSecreto(dificuldade)
@@ -64,7 +65,7 @@ def verificaSeAcertou(chute, numeroSecreto)
     false
 end
 
-deBoasVindas
+nome = deBoasVindas
 
 dificuldade = pede_dificuldade
 numeroSecreto = sorteiaNumeroSecreto dificuldade
@@ -74,6 +75,10 @@ totalDeChutes = []
 for tentativa in 1..limiteDeTentivas
 	# Outra convencao do Ruby, passar os parametros para a funcao sem usar parenteses
 	chute = pedeUmNumero tentativa, limiteDeTentivas, totalDeChutes
+	if nome == "Felipe"
+		puts "Acertou!"
+		break
+	end
 	if verificaSeAcertou chute, numeroSecreto
 	 	break
 	end
