@@ -95,6 +95,7 @@ end
 
 nome = deBoasVindas
 
-while quer_jogar
+loop do
 	joga(nome)
+	break if !quer_jogar
 end
