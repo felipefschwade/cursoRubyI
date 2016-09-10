@@ -65,25 +65,36 @@ def verificaSeAcertou(chute, numeroSecreto)
     false
 end
 
-nome = deBoasVindas
-
-pontos_ate_agora = 1000
-dificuldade = pede_dificuldade
-numeroSecreto = sorteiaNumeroSecreto dificuldade
-limiteDeTentivas = 5
-totalDeChutes = []
-
-for tentativa in 1..limiteDeTentivas
-	# Outra convencao do Ruby, passar os parametros para a funcao sem usar parenteses
-	chute = pedeUmNumero tentativa, limiteDeTentivas, totalDeChutes
-	if nome == "Felipe"
-		puts "Acertou!"
-		break
+def joga(nome)
+	pontos_ate_agora = 1000
+	dificuldade = pede_dificuldade
+	numeroSecreto = sorteiaNumeroSecreto dificuldade
+	limiteDeTentivas = 5
+	totalDeChutes = []
+	for tentativa in 1..limiteDeTentivas
+		# Outra convencao do Ruby, passar os parametros para a funcao sem usar parenteses
+		chute = pedeUmNumero tentativa, limiteDeTentivas, totalDeChutes
+		if nome == "Felipe"
+			puts "Acertou!"
+			break
+		end
+		pontos_perdidos = (chute.to_i - numeroSecreto).abs / 2 
+	    pontos_ate_agora = pontos_ate_agora - pontos_perdidos
+		if verificaSeAcertou chute, numeroSecreto
+		 	break
+		end
 	end
-    pontos_ate_agora -= (chute.to_i - numeroSecreto).abs
-	if verificaSeAcertou chute, numeroSecreto
-	 	break
-	end
+	puts "Você marcou: #{pontos_ate_agora}"
 end
 
-puts "Você marcou: #{pontos_ate_agora}"
+def quer_jogar
+    puts "Deseja jogar novamente? (S/N)"
+    quero_jogar = gets.strip
+    quero_jogar.upcase == "S"
+end
+
+nome = deBoasVindas
+
+while quer_jogar
+	joga(nome)
+end
